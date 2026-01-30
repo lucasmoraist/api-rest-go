@@ -2,12 +2,18 @@ package main
 
 import "fmt"
 
-func main() {
-	// var nomePizzaria string = "Pizzaria Go"
-	// fmt.Println(nomePizzaria)
+type Pizza struct {
+	id int
+	nome string
+	preco float64
+}
 
-	// Dessa maneira, o Go infere o tipo da variável automaticamente
-	nomePizzaria := "Pizzaria Go"
-	instagram, telefone := "@pizzariago", 12345678
-	fmt.Println(nomePizzaria, instagram, telefone)
+func main() {
+	var pizzas = []Pizza{
+		{id: 1, nome: "Toscana", preco: 45.00},
+		{id: 2, nome: "Marguerita", preco: 35.00},
+		{id: 3, nome: "Calabresa", preco: 40.00},
+	}
+
+	fmt.Println("Cardápio:", pizzas)
 }
