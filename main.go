@@ -3,31 +3,26 @@ package main
 import (
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"pizzaria/models"
 )
-
-type Pizza struct {
-	ID int `json:"id"`
-	Nome string `json:"nome"`
-	Preco float64 `json:"preco"`
-}
 
 func main() {
 	router := gin.Default()
 
-	router.GET("/pizzas", getPizzas)
+	router.GET("/pizzas", getPizza)
 
 	router.Run()
 }
 
-func getPizzas(c *gin.Context) {
-	var pizzas = []Pizza{
-		{ID: 1, Nome: "Toscana", Preco: 45.00},
-		{ID: 2, Nome: "Marguerita", Preco: 35.00},
-		{ID: 3, Nome: "Calabresa", Preco: 40.00},
+func getPizza(c *gin.Context) {
+	pizzas := []models.Pizza{
+		{ID: 1, Nome: "Margherita", Preco: 25.0},
+		{ID: 2, Nome: "Pepperoni", Preco: 30.0},
+		{ID: 3, Nome: "Quatro Queijos", Preco: 35.0},
 	}
-	fmt.Println(pizzas)
 
 	c.JSON(200, gin.H{
 		"pizzas": pizzas,
 	})
+	fmt.Println("Pizzas retornadas com sucesso")
 }
