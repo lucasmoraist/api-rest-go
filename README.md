@@ -31,3 +31,28 @@ go run main.go
 ```bash
 go build .
 ```
+
+## Declarando variaveis
+- Toda variavel declarada deve ser utilizada, caso contrário o código não compila
+
+### Exemplos
+```go
+func main() {
+	var nomePizzaria string = "Pizzaria Go"
+	fmt.Println(nomePizzaria)
+}
+```
+```go
+func main() {
+	// Dessa maneira, o Go infere o tipo da variável automaticamente
+	nomePizzaria := "Pizzaria Go"
+	fmt.Println(nomePizzaria)
+}
+```
+```go
+func main() {
+	nomePizzaria := "Pizzaria Go"
+	instagram, telefone := "pizzariago", 12345678
+	fmt.Println(nomePizzaria, instagram, telefone)
+}
+```
