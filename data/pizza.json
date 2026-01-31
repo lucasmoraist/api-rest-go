@@ -1,0 +1,17 @@
+[
+    {
+        "ID": 1,
+        "Nome": "Margherita",
+        "Preco": 25.0
+    },
+    {
+        "ID": 2,
+        "Nome": "Pepperoni",
+        "Preco": 30.0
+    },
+    {
+        "ID": 3,
+        "Nome": "Quatro Queijos",
+        "Preco": 35.0
+    }
+]
