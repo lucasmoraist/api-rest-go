@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"pizzaria/models"
+	"strconv"
 )
 
 var pizzas = []models.Pizza{
@@ -17,6 +18,7 @@ func main() {
 
 	router.GET("/pizzas", getPizza)
 	router.POST("/pizzas", postPizzas)
+	router.GET("/pizzas/:id", getPizzasById)
 
 	router.Run()
 }
@@ -36,4 +38,24 @@ func postPizzas(c *gin.Context) {
 	}
 
 	pizzas = append(pizzas, newPizza)
+}
+
+func getPizzasById(c *gin.Context) {
+	idParam := c.Param("id")
+	id, err := strconv.Atoi(idParam)
+ 
+	if err != nil {
+		c.JSON(400, gin.H{"error": "ID inválido"})
+		return
+	}
+
+	for _, p := range pizzas {
+		if p.ID == id {
+			c.JSON(200, p)
+			return
+		}
+	}
+
+	c.JSON(404, gin.H{"error": "Pizza não encontrada"})
+
 }
