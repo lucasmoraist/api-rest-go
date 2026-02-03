@@ -1,0 +1,71 @@
+{
+  "info": {
+    "_postman_id": "e708fdcb-c046-4fec-8ce7-e8e10980dd3c",
+    "name": "pizzaria go",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "26335691"
+  },
+  "item": [
+    {
+      "name": "/pizzas",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{local}}/pizzas",
+          "host": [
+            "{{local}}"
+          ],
+          "path": [
+            "pizzas"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "/pizzas/:id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{local}}/pizzas/1",
+          "host": [
+            "{{local}}"
+          ],
+          "path": [
+            "pizzas",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "/pizzas",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"nome\": \"Pepperoni\",\r\n    \"preco\": 30\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{local}}/pizzas",
+          "host": [
+            "{{local}}"
+          ],
+          "path": [
+            "pizzas"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
