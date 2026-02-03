@@ -53,7 +53,9 @@ func postPizzas(c *gin.Context) {
 		return
 	}
 
+	newPizza.ID = len(pizzas) + 1
 	pizzas = append(pizzas, newPizza)
+	savePizza()
 }
 
 func getPizzasById(c *gin.Context) {
@@ -73,5 +75,20 @@ func getPizzasById(c *gin.Context) {
 	}
 
 	c.JSON(404, gin.H{"error": "Pizza não encontrada"})
+}
 
+func savePizza() {
+	file, err := os.Create("data/pizza.json")
+
+	if err != nil {
+		fmt.Println("Erro ao abrir o arquivo:", err)
+		return
+	}
+	defer file.Close()
+
+	encoder := json.NewEncoder(file);
+
+	if err := encoder.Encode(pizzas); err != nil {
+		fmt.Println("Erro ao codificar o arquivo JSON:", err)	
+	}
 }
